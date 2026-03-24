@@ -1,102 +1,497 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" class="light">
 <head>
-    <title>TecBlog - O seu blog de tecnologia</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecBlog | The Digital Curator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#5c0abe",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "primary-container": "#3b49df",
+                        "tertiary-fixed": "#acedff",
+                        "primary": "var(--color-primary)",
+                        "background": "#f7f9ff",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "tertiary-container": "#006779",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-tertiary-container": "#81e5ff",
+                        "surface-tint": "#3c4ae0",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "outline": "#757687",
+                        "secondary-fixed": "#ebdcff",
+                        "tertiary": "#004d5b",
+                        "secondary": "#7232d4",
+                        "on-background": "#171c21",
+                        "on-tertiary-fixed": "#001f26",
+                        "secondary-fixed-dim": "#d4bbff",
+                        "inverse-primary": "#bdc2ff",
+                        "inverse-surface": "#2c3136",
+                        "inverse-on-surface": "#edf1f8",
+                        "outline-variant": "#c6c5d8",
+                        "surface-dim": "#d6dae1",
+                        "surface": "var(--color-surface)",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "surface-bright": "#f7f9ff",
+                        "surface-container-high": "var(--color-surface-container-high)",
+                        "surface-container-lowest": "var(--color-surface-container-lowest)",
+                        "on-primary-fixed-variant": "#1d2cc9",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#000668",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eaeef5",
+                        "on-secondary-fixed": "#260058",
+                        "surface-variant": "#dee3e9",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "secondary-container": "#8c50ef",
+                        "on-surface": "var(--color-on-surface)",
+                        "on-primary-container": "#d2d4ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        :root {
+            --color-surface: #f7f9ff;
+            --color-on-surface: #171c21;
+            --color-surface-container-lowest: #ffffff;
+            --color-surface-container-low: #f0f4fb;
+            --color-surface-container-highest: #dee3e9;
+            --color-surface-container-high: #e4e8ef;
+            --color-surface-variant: #dee3e9;
+            --color-on-surface-variant: #454655;
+            --color-primary: #1c2ac8;
+            --color-bg: #f7f9ff;
+        }
+        html.dark {
+            --color-surface: #0f172a;
+            --color-on-surface: #f1f5f9;
+            --color-surface-container-lowest: #1e293b;
+            --color-surface-container-low: #0f172a;
+            --color-surface-container-highest: #334155;
+            --color-surface-container-high: #475569;
+            --color-surface-variant: #1e293b;
+            --color-on-surface-variant: #94a3b8;
+            --color-primary: #60a5fa;
+            --color-bg: #0f172a;
+        }
+        /* original styles below */
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-on-surface);
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(247, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #1c2ac8 0%, #3b49df 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #1c2ac8 0%, #3b49df 100%);
+        }
+    </style>
 </head>
+<body class="bg-surface text-on-surface selection:bg-primary/20">
 
-<body>
-
-    <div id="area-cabecalho">
-
-        <div id="area-logo">
-            <h1>Tec<span class="branco">Blog</span></h1>
-        </div>
-        <div id="area-menu">
-            <a href="index.html">Home</a>
-            <a href="jogos.html">Jogos</a>
-            <a href="celulares.html">Celulares</a>
-            <a href="informatica.html">Informatica</a>
-            <a href="eletronicos.html">Eletronicos</a>
-
-        </div>
-    </div>
-
-    <div>
-        <div id="area-principal">
-
-
-
-            <div id="area-postagens">
-
-                <!-- abertura postagem -->
-                <div class="postagem">
-                    <h2>Titulo da postagem 1</h2>
-                    <span class="data-postagem">postado 20 março 2020</span>
-                    <img src="imagens/imagem1.jpg" width="600px">
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis
-                        condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et
-                        netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et,
-                        sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing."
-                    </p>
-                    <a href="">Leia mais</a>
-                </div><!-- Fechamento postagem -->
-
-                <!-- abertura postagem 2 -->
-                <div class="postagem">
-                    <h2>Titulo da postagem 2</h2>
-                    <span class="data-postagem">postado 10 março 2020</span>
-                    <img src="imagens/imagem2.jpg" width="600px">
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis
-                        condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et
-                        netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et,
-                        sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing."
-                    </p>
-                    <a href="">Leia mais</a>
-                </div><!-- Fechamento postagem 2 -->
-
+    <!-- TopAppBar -->
+    <nav class="fixed top-0 w-full z-50 glass-nav shadow-[0px_12px_32px_rgba(23,28,33,0.06)]">
+        <div class="flex justify-between items-center h-16 px-6 md:px-12 max-w-screen-2xl mx-auto">
+            <div class="text-2xl font-bold tracking-tighter text-primary dark:text-white">
+                TecBlog
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+                <a href="index.html" class="text-primary dark:text-white border-b-2 border-primary pb-1">Home</a>
+                <a href="article.html" class="text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-100/50 transition-all duration-200 px-2 py-1 rounded">Articles</a>
+                <a href="categories.html" class="text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-100/50 transition-all duration-200 px-2 py-1 rounded">Categories</a>
+                <a href="about.html" class="text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-100/50 transition-all duration-200 px-2 py-1 rounded">About</a>
             </div>
 
-            <div id="area-lateral">
+            <div class="flex items-center gap-4">
+                <button class="p-2 rounded-full hover:bg-slate-100/50 transition-all duration-200">
+                    <span class="material-symbols-outlined text-on-surface-variant">search</span>
+                </button>
+                <button class="p-2 rounded-full hover:bg-slate-100/50 transition-all duration-200" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-symbols-outlined text-on-surface-variant" data-icon="dark_mode">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-                <div class="conteudo-lateral">
-                    <h3>Postagens recentes</h3>
+    <main class="pt-24 pb-20 max-w-screen-2xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col lg:flex-row gap-12">
 
-                    <div class="postagem-lateral">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus
-                            lobortis
-                            condimentum.</p>
-                        <a href="">Leia mais</a>
+            <!-- SideNavBar (Hidden on small, sticky on large) -->
+            <aside class="hidden lg:flex flex-col w-64 h-fit sticky top-24 rounded-r-2xl bg-surface-container-low p-6 gap-4">
+                <div class="mb-4">
+                    <h3 class="font-headline text-lg font-bold text-on-surface">Categories</h3>
+                    <p class="text-xs text-on-surface-variant">Explore Topics</p>
+                </div>
+                
+                <nav class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-sm">
+                    <a href="categories.html" class="flex items-center gap-3 px-4 py-3 bg-white text-primary font-bold rounded-lg shadow-sm transition-transform duration-200 ease-out">
+                        <span class="material-symbols-outlined" data-icon="code">code</span> Frontend
+                    </a>
+                    <a href="categories.html" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-white/50 rounded-lg transition-transform duration-200 ease-out">
+                        <span class="material-symbols-outlined" data-icon="terminal">terminal</span> Backend
+                    </a>
+                    <a href="categories.html" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-white/50 rounded-lg transition-transform duration-200 ease-out">
+                        <span class="material-symbols-outlined" data-icon="psychology">psychology</span> AI
+                    </a>
+                    <a href="categories.html" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-white/50 rounded-lg transition-transform duration-200 ease-out">
+                        <span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span> DevOps
+                    </a>
+                    <a href="categories.html" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-white/50 rounded-lg transition-transform duration-200 ease-out">
+                        <span class="material-symbols-outlined" data-icon="smartphone">smartphone</span> Mobile
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Canvas Content -->
+            <div class="flex-1 space-y-24">
+                <!-- Featured Hero Section (Intentional Asymmetry) -->
+                <section class="relative group">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <div class="md:col-span-7 relative z-10">
+                            <span class="inline-block px-4 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label text-xs font-semibold mb-6">FEATURED EDITORIAL</span>
+                            <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface leading-tight mb-6">
+                                The Renaissance of <span class="text-gradient">Spatial Computing</span> in Modern Web.
+                            </h1>
+                            <p class="text-on-surface-variant font-body text-lg max-w-xl mb-8 leading-relaxed">
+                                Exploring how immersive 3D interfaces are moving beyond headsets and into the everyday browser experiences of tomorrow.
+                            </p>
+                            
+                            <div class="flex items-center gap-6">
+                                <a href="article.html" class="btn-gradient text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-sm shadow-sm hover:scale-[1.02] transition-all active:scale-95 duration-200 inline-block">
+                                    Read More
+                                </a>
+                                <span class="text-on-surface-variant font-label text-sm flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">schedule</span>
+                                    12 Min Read
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-5 relative">
+                            <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_yqbt4aUw7_ITGgT5BncvwqsX3syj1CXfpxnBZXsovQJfTpyjILozOjN27k53ZeUXMxxmfjyZGCz-emSEm5Jg83ATlYrRtbxdwW8t4wQR1nn2skyENEadQN5-uOEpAcylLnhmcEbSbJJyCBhVkdLiOMcopaxr5lwxxIm_B5b3i8XwYuYtRV0UFEaIYVPe_UxXx9ByuONDoecP-xhWp5Im2LY7yqFeFW7H18uRF8NMkIIXcO1sqVVGwSy58vA1S_GjDzHLh_6OzoA" 
+                                     alt="Spatial computing visualization" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Floating Glass Element -->
+                            <div class="absolute -bottom-6 -left-6 glass-nav p-6 rounded-xl shadow-xl hidden md:block max-w-[200px]">
+                                <p class="text-xs font-bold text-primary mb-1">CURATOR'S PICK</p>
+                                <p class="text-sm font-body text-on-surface">Visionary hardware meets standard software architectures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Latest Articles Section -->
+                <section>
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <h2 class="font-headline text-3xl font-bold text-on-surface mb-2 tracking-tight">Latest Articles</h2>
+                            <div class="w-12 h-1 bg-primary rounded-full"></div>
+                        </div>
+                        <a href="article.html" class="text-primary font-headline font-semibold flex items-center gap-1 group">
+                            View All 
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
                     </div>
 
-                    <div class="postagem-lateral" style="border-bottom: none;">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus
-                            lobortis
-                            condimentum.</p>
-                        <a href="">Leia mais</a>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        
+                        <!-- Card 1 -->
+                        <article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group shadow-sm">
+                            <a href="article.html" class="block aspect-video overflow-hidden relative">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx5CjUcn80N4XqLZRDArgEDoFR5SoZVGB_y68Y09bgk59dfvoa7MPaE8vXvswmTDAqmggAMk7WR7YI77C11g8lCmhPCDqWdWXdGFAPLFZh2fAnJegMJZ8aiezf4sH3QKWFshP7Up0wEgh-fH0BXEu0L2q8hn4VG4k2jWJPy9VlcKhSiBQSJEdjhlgYzLKvLr_rzi4TWbEWFZ0sfiW_gTEaBaqgFhIbjvWwsvP2XyZrUcnhiUEEj-avf0xAQgLZ9EJnOFWg-jQDsdY" 
+                                     alt="Cybersecurity" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur rounded-lg text-xs font-bold text-primary">
+                                    DEVOPS
+                                </div>
+                            </a>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <h3 class="font-headline text-xl font-bold mb-3 text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    <a href="article.html">Securing the Edge: New Frontiers in Cloud Infrastructure</a>
+                                </h3>
+                                <p class="text-on-surface-variant text-sm font-body mb-6 line-clamp-3">As distributed systems become the norm, we examine how edge computing is redefining the security perimeter for global enterprises.</p>
+                                
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-surface-container-highest/30">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+                                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN2RcAKUc_MK6XInE2EgS2c5zjggJ7lQx4VxNa8BEsPibiUB3o7p_aEOcWynEoTRhhBpFcFPWWI48eCQ51DTR7zYBWkKB4-FSXQnlrKHx4ypV8u82uvTN3hwsowXPZLN_wKf6WVMwclpBGqvi7uFe85oFgE-ThavckyeUZDzQudW8duTUYVW9hM7H3YmDrGHcleXMxOJy82z1bDY8P0EGkuX7FB4O2gK1Ic9zXAD-4nGNeOoa_HCerdvQonvh-OOuwvxpZIjyNGfA" alt="Author">
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+                                            <p class="text-[10px] text-on-surface-variant">May 12, 2024</p>
+                                        </div>
+                                    </div>
+                                    <span class="material-symbols-outlined text-on-surface-variant text-sm">bookmark</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group shadow-sm">
+                            <a href="article.html" class="block aspect-video overflow-hidden relative">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfULc1dSZ35duwHFPiKVQn_KK_0BysGPao0K3FCt20470ozcgvKKmLRehDPL5pWyhjH15hdwdRwMhgyizrcIu_e6_OzHEvUJU6niKWwA3_etFbliOTreZVxKn3WuCC-a8De2U7vzbhimIHpH_v2qktxJBI3N86HiTfWLakyENzx_2vM1kVIs4sg7CYuHc9i8STTkIikN45vx_7Pt50WPSOA1nAuZeAdmHgH7xKlLPHJdILKBNdGhd0Fn_NS4SsYSNrj2X2o65SMgg" 
+                                     alt="AI Architecture" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur rounded-lg text-xs font-bold text-primary">
+                                    AI
+                                </div>
+                            </a>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <h3 class="font-headline text-xl font-bold mb-3 text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    <a href="article.html">Beyond LLMs: The Rise of Agentic AI Workflows</a>
+                                </h3>
+                                <p class="text-on-surface-variant text-sm font-body mb-6 line-clamp-3">The next step in artificial intelligence isn't just chatting; it's autonomous agents that can plan, execute, and refine tasks.</p>
+                                
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-surface-container-highest/30">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+                                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK5L6BbfRruvMQXG-sqoGw2zLLS8VoZrW3a8-LDzpnJ0eefmkokRrhCiSITCcwFcqnGnHC4oUxautP4Et47QA1G7B-5xNceb-7G7mlibN8qTSTm3iCUUVc1dijd4SpoHVXgwJBgTCe64lWnqzFwJWcdqCkVX_AASgzX5txP_r4WMgGVYZicEeXhVqOxL35wZwPUl0fz6Y41KCV0eQslS2Lwpos1KCr9SV9a49u90bx6QQShm7UexQeUWNR-b-lLv_XZaXa-t9TEI4" alt="Author">
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-on-surface">Sarah Chen</p>
+                                            <p class="text-[10px] text-on-surface-variant">May 10, 2024</p>
+                                        </div>
+                                    </div>
+                                    <span class="material-symbols-outlined text-on-surface-variant text-sm">bookmark</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group shadow-sm">
+                            <a href="article.html" class="block aspect-video overflow-hidden relative">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQmcliHgkrNeQYJdRqd4VnGLBCPTExkE3HKHBRrPHYq7jjjbc1Hq9LU0tsCLajnHfa91zhFJiguRacmVc-wH01PZcvloMNr2kBt2VFe8ElUHMHRCKcGduhf7DUN2FVocqn3Cs97VUxWgnYCVNgmOpY-xGYyY2XHCev_ldBXG5Wn2W-TTa3-gPuJbOO2pHEU86JrAzs9tXJ-kY_5_zkPRBimhwdTRghBhpXMUV7w2ksLhznHIHitaS8SieLfv2te1xORZV-ohyAAHU" 
+                                     alt="Frontend design" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-surface-container-lowest/90 backdrop-blur rounded-lg text-xs font-bold text-primary">
+                                    FRONTEND
+                                </div>
+                            </a>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <h3 class="font-headline text-xl font-bold mb-3 text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    <a href="article.html">The Cost of Animation: Balancing Performance and Delight</a>
+                                </h3>
+                                <p class="text-on-surface-variant text-sm font-body mb-6 line-clamp-3">How to implement high-fidelity motion design without compromising on core web vitals and mobile responsiveness.</p>
+                                
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-surface-container-highest/30">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+                                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-zWR4Cz6xxUTn3myO7qLiQUR9MbKh93lzWlbJOztcb6d126h6h2g-CG1z2Zv8o--fi9ewjnjkZqhFNou6HE2FCdbhOCOKrniPryKXC2BHlkoncXwJyFsJs-UJMiNUsknPyuX5IzBTD6ts9hAy9uJXJ9d2gDWBQW7PX4PevyjQi94ve4wPU1ifSYQ1pzOICLFUp7Aw1SWvSSH0vPeZHz4HgLR8xnPQ1QuiA-VSHylQLBm2hx-g1k1Ari-3ypwmGzBGM2eQ24xjc9Y" alt="Author">
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-on-surface">Marcus Thorne</p>
+                                            <p class="text-[10px] text-on-surface-variant">May 08, 2024</p>
+                                        </div>
+                                    </div>
+                                    <span class="material-symbols-outlined text-on-surface-variant text-sm">bookmark</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- Newsletter Bento Section -->
+                <section class="bg-surface-container-low rounded-3xl p-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <div>
+                            <h2 class="font-headline text-3xl font-extrabold text-on-surface mb-4 tracking-tight">Stay Curated</h2>
+                            <p class="text-on-surface-variant font-body mb-8">Get our weekly roundup of the most impactful technology insights, delivered straight to your inbox. No noise, just the signals.</p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <input type="email" placeholder="youremail@provider.com" class="flex-1 px-6 py-4 rounded-xl bg-surface-container-highest border-none focus:ring-2 focus:ring-primary text-sm font-body outline-none">
+                                <button class="btn-gradient text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-sm">Subscribe Now</button>
+                            </div>
+                            <p class="text-[10px] text-on-surface-variant mt-4 font-label uppercase tracking-widest">JOIN 45,000+ READERS WORLDWIDE</p>
+                        </div>
+                        
+                        <div class="hidden lg:grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined text-primary mb-2">auto_awesome</span>
+                                    <p class="text-sm font-bold text-on-surface">AI Insights</p>
+                                    <p class="text-xs text-on-surface-variant">Deep dives into new models.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined text-secondary mb-2">terminal</span>
+                                    <p class="text-sm font-bold text-on-surface">Dev Updates</p>
+                                    <p class="text-xs text-on-surface-variant">Best practices & frameworks.</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4 pt-8">
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined text-tertiary mb-2">architecture</span>
+                                    <p class="text-sm font-bold text-on-surface">System Design</p>
+                                    <p class="text-xs text-on-surface-variant">Scalable architecture patterns.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <span class="material-symbols-outlined text-error mb-2">shield</span>
+                                    <p class="text-sm font-bold text-on-surface">Privacy</p>
+                                    <p class="text-xs text-on-surface-variant">Security first reporting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar (Desktop only) -->
+            <aside class="hidden xl:block w-80 space-y-12">
+                <!-- Search Box -->
+                <div class="relative">
+                    <input type="text" placeholder="Search articles..." class="w-full bg-surface-container-highest border-none rounded-xl py-4 pl-12 pr-4 text-sm font-body outline-none focus:ring-2 focus:ring-primary">
+                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                </div>
+
+                <!-- Popular Posts -->
+                <div>
+                    <h4 class="font-headline font-bold text-on-surface mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">trending_up</span> Popular Now
+                    </h4>
+                    <div class="space-y-6">
+                        <a href="article.html" class="group flex gap-4">
+                            <span class="text-2xl font-black text-surface-container-highest group-hover:text-primary/20 transition-colors">01</span>
+                            <div>
+                                <h5 class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">TypeScript 5.4: New features you must know</h5>
+                                <p class="text-[10px] text-on-surface-variant mt-1 uppercase tracking-wider">FRONTEND • 5M READ</p>
+                            </div>
+                        </a>
+                        <a href="article.html" class="group flex gap-4">
+                            <span class="text-2xl font-black text-surface-container-highest group-hover:text-primary/20 transition-colors">02</span>
+                            <div>
+                                <h5 class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">The developer's guide to sustainable coding</h5>
+                                <p class="text-[10px] text-on-surface-variant mt-1 uppercase tracking-wider">CULTURE • 8M READ</p>
+                            </div>
+                        </a>
+                        <a href="article.html" class="group flex gap-4">
+                            <span class="text-2xl font-black text-surface-container-highest group-hover:text-primary/20 transition-colors">03</span>
+                            <div>
+                                <h5 class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">Rust vs Go: The 2024 performance showdown</h5>
+                                <p class="text-[10px] text-on-surface-variant mt-1 uppercase tracking-wider">BACKEND • 12M READ</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
-                <div class="conteudo-lateral">
-                    <h3>Categorias</h3>
+                <!-- Tag Chips -->
+                <div>
+                    <h4 class="font-headline font-bold text-on-surface mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">sell</span> Trending Tags
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#kubernetes</a>
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#nextjs</a>
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#fintech</a>
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#ux-writing</a>
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#web3</a>
+                        <a href="#" class="px-3 py-1.5 bg-surface-container-low text-xs font-medium text-on-surface-variant rounded-full hover:bg-primary hover:text-white transition-colors">#open-source</a>
+                    </div>
+                </div>
 
-                    <a href="jogos.html">Jogos</a><br>
-                    <a href="celulares.html">Celulares</a><br>
-                    <a href="informatica.html">Informatica</a><br>
-                    <a href="eletronicos.html">Eletronicos</a><br>
+                <!-- Sticky Promo -->
+                <div class="sticky top-32 p-6 rounded-2xl bg-[#1c2ac8] text-white">
+                    <p class="font-headline font-bold text-lg mb-2">Premium Experience</p>
+                    <p class="text-sm text-blue-100/80 mb-6">Remove all ads and get early access to deep-dive investigative tech reports.</p>
+                    <button class="w-full bg-white text-primary font-bold py-3 rounded-xl text-sm hover:bg-blue-50 transition-colors">Go Pro Today</button>
+                </div>
+            </aside>
 
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-20 bg-surface-container-low dark:bg-slate-950">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-6 md:px-24 py-16 max-w-screen-2xl mx-auto">
+            <div>
+                <span class="text-xl font-bold text-primary dark:text-white mb-4 block">TecBlog</span>
+                <p class="font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 max-w-xs">
+                    Curating the future of technology through deep analysis and professional editorial perspective.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <h5 class="font-headline text-sm font-bold text-on-surface mb-6">Platform</h5>
+                    <ul class="space-y-3">
+                        <li><a href="article.html" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">Articles</a></li>
+                        <li><a href="categories.html" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">Categories</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">RSS Feed</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-headline text-sm font-bold text-on-surface mb-6">Legal</h5>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">Privacy Policy</a></li>
+                        <li><a href="about.html" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">Terms of Service</a></li>
+                        <li><a href="about.html" class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#3b49df] transition-colors">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="flex flex-col items-start md:items-end">
+                <h5 class="font-headline text-sm font-bold text-on-surface mb-6">Social Networks</h5>
+                <div class="flex gap-4 mb-8">
+                    <a href="#" class="p-2 rounded-lg bg-surface-container-highest text-primary hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">alternate_email</span>
+                    </a>
+                    <a href="#" class="p-2 rounded-lg bg-surface-container-highest text-primary hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+                    </a>
+                    <a href="#" class="p-2 rounded-lg bg-surface-container-highest text-primary hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                    </a>
+                </div>
+                <p class="font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                    © 2024 TecBlog. The Digital Curator.
+                </p>
+            </div>
         </div>
-    </div>
-
-    <div id="rodape">
-        Todos os direitos reservados
-    </div>
-
+    </footer>
 
 </body>
-
 </html>

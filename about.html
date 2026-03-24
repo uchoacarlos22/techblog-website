@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TecBlog</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "var(--color-surface)",
+                        "primary-container": "#3b49df",
+                        "primary": "var(--color-primary)",
+                        "background": "#f7f9ff",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "tertiary-container": "#006779",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-tertiary-container": "#81e5ff",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "on-surface": "var(--color-on-surface)"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --color-surface: #f7f9ff;
+            --color-on-surface: #171c21;
+            --color-surface-container-lowest: #ffffff;
+            --color-surface-container-low: #f0f4fb;
+            --color-surface-container-highest: #dee3e9;
+            --color-surface-container-high: #e4e8ef;
+            --color-surface-variant: #dee3e9;
+            --color-on-surface-variant: #454655;
+            --color-primary: #1c2ac8;
+            --color-bg: #f7f9ff;
+        }
+        html.dark {
+            --color-surface: #0f172a;
+            --color-on-surface: #f1f5f9;
+            --color-surface-container-lowest: #1e293b;
+            --color-surface-container-low: #0f172a;
+            --color-surface-container-highest: #334155;
+            --color-surface-container-high: #475569;
+            --color-surface-variant: #1e293b;
+            --color-on-surface-variant: #94a3b8;
+            --color-primary: #60a5fa;
+            --color-bg: #0f172a;
+        }
+        /* original styles below */
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- TopNavBar -->
+    <nav class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="text-2xl font-bold tracking-tighter text-blue-700 dark:text-blue-400">
+                TecBlog
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Home</a>
+                <a href="article.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Articles</a>
+                <a href="categories.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Categories</a>
+                <a href="about.html" class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-['Plus_Jakarta_Sans'] text-sm">About</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section: Our Mission -->
+        <section class="relative min-h-[819px] flex items-center overflow-hidden bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ3i9CsZyFr0zWe8oqs5w0t8qhNUdoo-hD-hIBEcgIjN2HA8SHf2UBvBRk_KgkUXvz5IWtEfN28S1NaMoisqxYiXB4ZpCYr9V9_ctWuGhIE25DQjRSSYBt1rSSs3VI2gM1fwzfqoBrDy_Dn2N1IwwFMY2B4iVUaJOOLRHnIVPincYL3BvH_J1YPulVMvZCHNC88flShxY0oLVkr40gnEMZb-LHH63xuwrXFO4JxbUcWY-kj3ZEknRCp_WGRq8hXkIaW4gXlZNOe9g" 
+                     alt="Global connectivity" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-tr from-[#1c2ac8]/60 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-6 py-24">
+                <div class="max-w-3xl">
+                    <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-[#1c2ac8] text-white rounded-full">Our Mission</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-8 leading-[1.1]">
+                        Curating the <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">Future of Technology</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-blue-50/80 font-light leading-relaxed mb-10">
+                        TecBlog exists at the intersection of rigorous engineering and high-end editorial storytelling. We strip away the noise to bring you the signal.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why TecBlog? Section -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="group">
+                        <div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">analytics</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Expert Analysis</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Our contributors are industry veterans who look beyond the press release. We provide technical scrutiny that typical tech media misses.</p>
+                    </div>
+                    
+                    <div class="group">
+                        <div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">groups</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Community-Driven</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Built by developers, for developers. We foster a space where code quality and architectural integrity are the primary metrics of success.</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">auto_stories</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Deep Dives</h3>
+                        <p class="text-on-surface-variant leading-relaxed">We don't do clickbait. Every article is an editorial investment designed to provide long-term educational value and strategic insight.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Team Section -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">The Editorial Board</h2>
+                        <p class="text-lg text-on-surface-variant">The minds behind the most influential technology guides in the digital landscape.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgLrAItF9Ff-TZDYxQ-IJhT4RlK_KkddpA1-4Onm7KBkhchRyEFJUdcQp_1CIVOsF74_UKwiVo58hpM0WOLSuVDBp-Xyb9akoSPqI7NcgeCXrNH6bhDt-kd4cdzORKfIxqAPIA3Z_wLoxfldgqYLjrngv96UUZHboPnoIG606AeUcHH7_-3RiS_Ov7XPgxZ3l4ipT0-c1mDEcw-bhC8UHBBHgKXgpjzgGKaYjXKxsAz4bdv1RGV6mJDpHxvcwkbHghtuz_8rEYF80" alt="Marcus Thorne" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-surface-container-low">
+                        <h4 class="text-xl font-bold">Marcus Thorne</h4>
+                        <p class="text-primary text-sm font-semibold mb-4">Editor in Chief</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Former CTO with 20 years experience in distributed systems and cloud architecture.</p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJINcNHO39-69z-7jLmbz7eYuGkHaQalw3O3_kZvf6tsLcGq3Nb5NpqNrWIsjS4OUqM4cKkeBqV_5ys2PP-zIe5J6KUuAc2QT3gLxuKkZlw3SU70kkV80GPKD3n8AuvVNKrU49T3u8A5b3h-qGkAHTt6dAte0GIXH5tjn4_G5Gav65KCIBI3SvvvItLfgcYDFOnlW1XQMM0W5RLIG3vFm8T18fa-0wGk3j4uh4W1bvk7Gdv-mJ3xL45WiILBu4YktW67XDau0iDKY" alt="Elena Vance" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-surface-container-low">
+                        <h4 class="text-xl font-bold">Elena Vance</h4>
+                        <p class="text-primary text-sm font-semibold mb-4">Senior Tech Analyst</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Specializing in AI ethics and Large Language Model benchmarks.</p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVAkT3t-_LcC58jN_fOPHaJgwEvhb5yuQyJMN32VKW44ZBz7Pek4LljIXGKOTRHQEVD_T7lAbCORgpGKH1lSDCA4ihbkVtmHJm77OyeNV2Dnx43BhJwdJGhcE7Mm8rSYu-4ECteYEBtsRGGHobp5vpN6kT_M8vzLfcmY1oG7ayF1RMxAEcWXGlT3oPS4ynhw7D2OR3r9cDCKcPIqBsmDiHwH1VFxbcXs1XgYqqU_C58L8iXRa-QUbxjY6yl3p_vNAkSC5O2C-5eh0" alt="David Chen" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-surface-container-low">
+                        <h4 class="text-xl font-bold">David Chen</h4>
+                        <p class="text-primary text-sm font-semibold mb-4">Lead Developer</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Full-stack architect focusing on performance optimization and modern UI frameworks.</p>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUnaZJR9yUWOlbBbMw0paXJxGs6wWqIh5Yz9EH8PSql1Fskp3CgH_y3I0xzd27W3SYvZLloCKbJTXYkNXIYGDktlATAfwkMPIBxqo8veF8_TvgWUG-M8aoYgRdDtVeGAmJLE140xRnDIlXTHq3rZHKSdQ3NcHMwro9a4p9O9D-QhBp8-qMn11FVcNeGC7Xouu3kc1KCvpCJct_rcCXps6-egQjE4TMhS93h19kPov4t49Sp0a4qgM3Ycgym768bAfmmPdhKJ7WKZQ" alt="Sarah Miller" class="w-20 h-20 rounded-full object-cover mb-6 ring-4 ring-surface-container-low">
+                        <h4 class="text-xl font-bold">Sarah Miller</h4>
+                        <p class="text-primary text-sm font-semibold mb-4">Content Strategist</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Translating complex technical concepts into accessible editorial narratives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Join Us Section-->
+        <section class="py-32 bg-surface">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <div class="lg:col-span-5">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-8">Join the Discourse</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                        We are always looking for authoritative voices in the tech space. Whether you're an engineer with a story or a brand looking to collaborate, we want to hear from you.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Editorial Inquiries</p>
+                                <p class="text-lg font-medium">hello@tecblog.io</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary">location_on</span>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Headquarters</p>
+                                <p class="text-lg font-medium">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-10 rounded-2xl shadow-xl shadow-blue-900/5">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Full Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary p-4">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Email Address</label>
+                                <input type="email" placeholder="john@company.com" class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary p-4">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Subject</label>
+                            <select class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary p-4">
+                                <option>Contribute an Article</option>
+                                <option>Partnership Inquiry</option>
+                                <option>General Feedback</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Your Message</label>
+                            <textarea rows="4" placeholder="Tell us more..." class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary p-4"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-lg shadow-lg hover:scale-[1.01] transition-transform">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-8 py-16">
+            <div class="space-y-6">
+                <div class="text-lg font-black text-slate-900 dark:text-white">TecBlog</div>
+                <p class="text-slate-500 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest max-w-sm">
+                    © 2024 TecBlog. High-End Editorial Technology Guide.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-8 md:justify-end">
+                <a href="article.html" class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 hover:text-blue-700">Platform</a>
+                <a href="about.html" class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 hover:text-blue-700">Privacy Policy</a>
+                <a href="about.html" class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 hover:text-blue-700">Terms of Service</a>
+                <a href="about.html" class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 hover:text-blue-700">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

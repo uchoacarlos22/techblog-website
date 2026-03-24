@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Detail | TecBlog</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#3b49df",
+                        "primary": "#1c2ac8",
+                        "background": "#f7f9ff",
+                        "surface-container-highest": "#dee3e9",
+                        "tertiary-container": "#006779",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-tertiary-container": "#81e5ff",
+                        "surface-container-low": "#f0f4fb",
+                        "on-surface-variant": "#454655",
+                        "on-surface": "#171c21"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "mono": ["Fira Code"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1c2ac8, #3b49df);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-header {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+        }
+
+        /* Custom Typography overrides for blog content */
+        .prose pre {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            line-height: 1.7;
+            overflow-x: auto;
+            border: 1px solid #1e293b;
+        }
+        .prose code {
+            color: #1c2ac8;
+            background-color: #f1f5f9;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875em;
+        }
+        .dark .prose code {
+            color: #bdc2ff;
+            background-color: #1e293b;
+        }
+        .prose pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .prose blockquote {
+            border-left-color: #1c2ac8;
+            background-color: rgba(28, 42, 200, 0.03);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-style: italic;
+            color: #454655;
+        }
+        .dark .prose blockquote {
+            background-color: rgba(189, 194, 255, 0.05);
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen selection:bg-blue-600/20">
+
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar" id="reading-progress"></div>
+
+    <!-- TopNavBar -->
+    <nav class="sticky top-0 z-50 w-full glass-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="text-xl font-bold tracking-tighter text-blue-700 dark:text-blue-400">
+                TecBlog
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Home</a>
+                <a href="article.html" class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-['Plus_Jakarta_Sans'] text-sm">Articles</a>
+                <a href="categories.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Categories</a>
+                <a href="about.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">About</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-symbols-outlined text-sm">dark_mode</span>
+                </button>
+                <div class="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-2 hidden sm:block"></div>
+                <a href="#" class="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Subscribe
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16 items-start">
+            
+            <!-- Article Content Column -->
+            <article class="w-full max-w-3xl mx-auto lg:mx-0">
+                
+                <!-- Metadata & Header -->
+                <header class="mb-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold uppercase tracking-wider rounded-md border border-blue-100 dark:border-blue-800/50">Frontend</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-sm font-medium flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">schedule</span> 8 min read
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-8">
+                        The Cost of Animation: Balancing Performance and Delight
+                    </h1>
+
+                    <div class="flex items-center justify-between py-6 border-y border-slate-200 dark:border-slate-800">
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-zWR4Cz6xxUTn3myO7qLiQUR9MbKh93lzWlbJOztcb6d126h6h2g-CG1z2Zv8o--fi9ewjnjkZqhFNou6HE2FCdbhOCOKrniPryKXC2BHlkoncXwJyFsJs-UJMiNUsknPyuX5IzBTD6ts9hAy9uJXJ9d2gDWBQW7PX4PevyjQi94ve4wPU1ifSYQ1pzOICLFUp7Aw1SWvSSH0vPeZHz4HgLR8xnPQ1QuiA-VSHylQLBm2hx-g1k1Ari-3ypwmGzBGM2eQ24xjc9Y" alt="Marcus Thorne" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white leading-tight">Marcus Thorne</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Written on May 08, 2024</p>
+                            </div>
+                        </div>
+
+                        <!-- Share actions -->
+                        <div class="flex gap-2">
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-100 hover:text-blue-700 transition-colors" title="Bookmark">
+                                <span class="material-symbols-outlined text-[20px]">bookmark</span>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-100 hover:text-blue-700 transition-colors" title="Share">
+                                <span class="material-symbols-outlined text-[20px]">share</span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Hero Image -->
+                <figure class="mb-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200/50 dark:border-slate-800">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQmcliHgkrNeQYJdRqd4VnGLBCPTExkE3HKHBRrPHYq7jjjbc1Hq9LU0tsCLajnHfa91zhFJiguRacmVc-wH01PZcvloMNr2kBt2VFe8ElUHMHRCKcGduhf7DUN2FVocqn3Cs97VUxWgnYCVNgmOpY-xGYyY2XHCev_ldBXG5Wn2W-TTa3-gPuJbOO2pHEU86JrAzs9tXJ-kY_5_zkPRBimhwdTRghBhpXMUV7w2ksLhznHIHitaS8SieLfv2te1xORZV-ohyAAHU" alt="Frontend design visualization" class="w-full h-auto aspect-video object-cover">
+                    <figcaption class="p-3 text-xs text-center text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/50">
+                        Visualizing the render tree processing complex CSS animations.
+                    </figcaption>
+                </figure>
+
+                <!-- Prose Content (Using Tailwind Typography plugin classes via generic equivalents for structure) -->
+                <div class="prose prose-lg dark:prose-invert prose-slate max-w-none prose-headings:font-headline prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-img:rounded-xl">
+                    <p class="lead text-xl text-slate-600 dark:text-slate-300 mb-8 font-light leading-relaxed">
+                        We've all seen them: websites that feel alive. Elements orchestrate a beautiful entrance, hover states feel tactile, and page transitions are seamless. But behind that delight often hides a severe performance tax that disproportionately affects mobile users.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-slate-900 dark:text-white">The Layout Thrashing Problem</h2>
+                    <p class="mb-6">
+                        Before we look at solutions, we need to understand the browser's rendering pipeline. When you change a CSS property, the browser goes through a specific sequence: <strong>Layout &gt; Paint &gt; Composite</strong>. 
+                    </p>
+                    <p class="mb-6">
+                        Animating properties like <code>width</code>, <code>height</code>, or <code>margin</code> forces the browser to recalculate the layout of the entire page for every single frame of the animation. If your animation runs at 60 frames per second, you are forcing 60 layout recalculations per second. This is known as layout thrashing, and it's the primary cause of janky scrolling and poor battery life.
+                    </p>
+
+                    <blockquote class="my-8 text-xl font-medium">
+                        "The golden rule of high-performance web animations is simple: Only animate properties that can be handled purely by the compositor thread."
+                    </blockquote>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-slate-900 dark:text-white">The Compositor-Only Approach</h2>
+                    <p class="mb-6">
+                        To maintain a silky smooth 60fps (or 120fps on modern devices), you should restrict your animations to exactly two properties:
+                    </p>
+                    <ul class="list-disc pl-6 mb-8 space-y-2">
+                        <li><strong>Transform:</strong> For moving (translate), scaling, or rotating elements.</li>
+                        <li><strong>Opacity:</strong> For fading elements in and out.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">Example: The Wrong Way</h3>
+                    <p class="mb-4">Animating the <code>top</code> property forces a layout recalculation.</p>
+<pre class="mb-8"><code>/* ❌ Bad Performance */
+.dropdown-menu {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-menu.active {
+  top: 0;
+  opacity: 1;
+}</code></pre>
+
+                    <h3 class="text-xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">Example: The Right Way</h3>
+                    <p class="mb-4">Using <code>transform: translateY()</code> moves the element on the GPU, bypassing the layout phase entirely.</p>
+<pre class="mb-8"><code>/* ✅ Excellent Performance */
+.dropdown-menu {
+  position: absolute;
+  top: 0; /* Fixed position */
+  opacity: 0;
+  transform: translateY(-20px);
+  /* The will-change property hints to the browser to prepare the GPU */
+  will-change: transform, opacity;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s ease;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+}</code></pre>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-slate-900 dark:text-white">Balancing Act: The Developer's Dilemma</h2>
+                    <p class="mb-6">
+                        It's tempting to use heavy JavaScript animation libraries like GSAP or Framer Motion for everything. While these tools are incredibly powerful for complex timelines, they require downloading an additional payload and executing JavaScript on the main thread.
+                    </p>
+                    <p class="mb-6">
+                        For UI micro-interactions (hover states, simple reveals, toggles), native CSS transitions are almost always superior. The browser can optimize them deeply, they run independently of the JS execution context, and they don't block the main thread. 
+                    </p>
+                    
+                    <div class="bg-blue-50 dark:bg-slate-800/80 p-6 rounded-xl border border-blue-100 dark:border-slate-700 my-8">
+                        <h4 class="font-bold text-blue-900 dark:text-blue-400 mb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">lightbulb</span> Pro Tip: Easing Matters
+                        </h4>
+                        <p class="text-sm text-slate-700 dark:text-slate-300">
+                            The difference between a cheap-feeling animation and a premium one is often just the easing curve. Avoid <code>linear</code> or default <code>ease</code>. Custom cubic-bezier curves (like <code>cubic-bezier(0.16, 1, 0.3, 1)</code>) create a snappy start and a smooth, deliberate finish that mimics real-world physics.
+                        </p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-slate-900 dark:text-white">Conclusion</h2>
+                    <p class="mb-6">
+                        Animation shouldn't be an afterthought layered on top of a finished design. It should be considered as a functional part of the UX that guides the user's eye and provides state context. But that delight must not come at the cost of accessibility or core web vitals. Stick to compositor properties, respect <code>prefers-reduced-motion</code> media queries, and keep the DOM clean.
+                    </p>
+                </div>
+
+                <!-- Article Tags -->
+                <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2">
+                    <span class="text-sm font-bold text-slate-500 dark:text-slate-400 mr-2 py-1">Tags:</span>
+                    <a href="#" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">CSS</a>
+                    <a href="#" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">Performance</a>
+                    <a href="#" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">UX Design</a>
+                    <a href="#" class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-md hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">Frontend</a>
+                </div>
+
+                <!-- Author Bio Box -->
+                <div class="mt-12 p-8 bg-slate-50 dark:bg-slate-800/50 rounded-2xl flex flex-col sm:flex-row gap-6 items-start border border-slate-100 dark:border-slate-800">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-zWR4Cz6xxUTn3myO7qLiQUR9MbKh93lzWlbJOztcb6d126h6h2g-CG1z2Zv8o--fi9ewjnjkZqhFNou6HE2FCdbhOCOKrniPryKXC2BHlkoncXwJyFsJs-UJMiNUsknPyuX5IzBTD6ts9hAy9uJXJ9d2gDWBQW7PX4PevyjQi94ve4wPU1ifSYQ1pzOICLFUp7Aw1SWvSSH0vPeZHz4HgLR8xnPQ1QuiA-VSHylQLBm2hx-g1k1Ari-3ypwmGzBGM2eQ24xjc9Y" alt="Marcus Thorne" class="w-20 h-20 rounded-full object-cover ring-4 ring-white dark:ring-slate-700">
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Marcus Thorne</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Former CTO and performance architect. Marcus writes about the intersection of high-fidelity design and rigorous engineering standards. 
+                        </p>
+                        <a href="#" class="text-blue-600 dark:text-blue-400 text-sm font-bold hover:underline">View all posts by Marcus</a>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Sticky Sidebar -->
+            <aside class="hidden lg:block sticky top-28">
+                
+                <!-- Table of Contents -->
+                <div class="bg-slate-50 dark:bg-slate-800/30 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-8">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4 uppercase tracking-wider text-xs">In this article</h4>
+                    <ul class="space-y-3 text-sm font-medium text-slate-600 dark:text-slate-400">
+                        <li>
+                            <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors block">The Layout Thrashing Problem</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors block pl-4 border-l-2 border-slate-200 dark:border-slate-700">The Compositor-Only Approach</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors block">Balancing Act: The Developer's Dilemma</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors block">Conclusion</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Related Reading -->
+                <div class="bg-white dark:bg-slate-800/30 rounded-2xl p-6 border border-slate-100 dark:border-slate-800">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-xs">Related Reading</h4>
+                    
+                    <div class="space-y-6">
+                        <a href="#" class="group block">
+                            <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 leading-tight transition-colors mb-1">
+                                Understanding the Critical Rendering Path
+                            </h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-500 font-medium">May 01, 2024</p>
+                        </a>
+                        
+                        <div class="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
+
+                        <a href="#" class="group block">
+                            <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 leading-tight transition-colors mb-1">
+                                Tailwind CSS: Beyond Utility Classes
+                            </h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-500 font-medium">April 18, 2024</p>
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-12 bg-slate-950 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <span class="text-xl font-black text-white mb-2 block">TecBlog</span>
+                <p class="text-xs uppercase tracking-widest max-w-sm font-[Inter]">
+                    Curating the future of technology.
+                </p>
+            </div>
+            
+            <div class="flex gap-6 md:justify-end">
+                <a href="index.html" class="text-sm hover:text-white transition-colors">Home</a>
+                <a href="categories.html" class="text-sm hover:text-white transition-colors">Topics</a>
+                <a href="about.html" class="text-sm hover:text-white transition-colors">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script to simulate reading progress bar -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        });
+    </script>
+</body>
+</html>

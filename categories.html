@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | TecBlog</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#3b49df",
+                        "primary": "#1c2ac8",
+                        "background": "#f7f9ff",
+                        "surface-container-highest": "#dee3e9",
+                        "tertiary-container": "#006779",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-tertiary-container": "#81e5ff",
+                        "surface-container-low": "#f0f4fb",
+                        "on-surface-variant": "#454655",
+                        "on-surface": "#171c21"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-header {
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen selection:bg-blue-600/20">
+
+    <!-- TopNavBar -->
+    <nav class="sticky top-0 z-50 w-full glass-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="text-2xl font-bold tracking-tighter text-blue-700 dark:text-blue-400">
+                TecBlog
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Home</a>
+                <a href="article.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">Articles</a>
+                <a href="categories.html" class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-['Plus_Jakarta_Sans'] text-sm">Categories</a>
+                <a href="about.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm">About</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+                <button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" onclick="document.documentElement.classList.toggle('dark')">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Header -->
+        <header class="mb-16 md:mb-24 flex items-center justify-between">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-6">Topic Archive</h1>
+                <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                    Browse our comprehensive library of editorial content, organized by technological domain. We maintain strict curation standards across all categories.
+                </p>
+            </div>
+        </header>
+
+        <!-- Categories Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- Category 1 -->
+            <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full">
+                <!-- Abstract bg shape -->
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-blue-50 dark:bg-blue-900/10 rounded-full blur-2xl group-hover:bg-blue-100 dark:group-hover:bg-blue-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-8 text-blue-600 dark:text-blue-400">
+                        <span class="material-symbols-outlined text-3xl">psychology</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">Artificial Intelligence</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Deep learning architectures, LLM capabilities, and the ethical implications of autonomous systems.</p>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6">
+                    <span>142 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600 dark:text-blue-400">arrow_forward</span>
+                </div>
+            </a>
+
+            <!-- Category 2 -->
+            <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-purple-50 dark:bg-purple-900/10 rounded-full blur-2xl group-hover:bg-purple-100 dark:group-hover:bg-purple-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-8 text-purple-600 dark:text-purple-400">
+                        <span class="material-symbols-outlined text-3xl">terminal</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors tracking-tight">Software Engineering</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Design patterns, scalable architectures, and advanced programming paradigms across stacks.</p>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6">
+                    <span>328 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-purple-600 dark:text-purple-400">arrow_forward</span>
+                </div>
+            </a>
+
+            <!-- Category 3 -->
+            <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full md:col-span-2 lg:col-span-1 xl:col-span-2">
+                 <div class="absolute bottom-0 right-0 w-64 h-64 bg-emerald-50 dark:bg-emerald-900/10 rounded-full blur-3xl group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1 flex flex-col xl:flex-row gap-8 items-start xl:items-center">
+                    <div class="flex-1">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-8 xl:mb-6 text-emerald-600 dark:text-emerald-400">
+                            <span class="material-symbols-outlined text-3xl">cloud</span>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors tracking-tight xl:text-3xl">Cloud & Infrastructure</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6 xl:text-base">Modern devops practices, container orchestration, edge computing, and reliable CI/CD pipelines.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6 xl:col-span-2">
+                    <span>215 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-emerald-600 dark:text-emerald-400">arrow_forward</span>
+                </div>
+            </a>
+
+             <!-- Category 4 -->
+            <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-rose-500 dark:hover:border-rose-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-rose-50 dark:bg-rose-900/10 rounded-full blur-2xl group-hover:bg-rose-100 dark:group-hover:bg-rose-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-900/30 flex items-center justify-center mb-8 text-rose-600 dark:text-rose-400">
+                        <span class="material-symbols-outlined text-3xl">security</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors tracking-tight">Cybersecurity</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Threat modeling, cryptography, zero-trust architectures, and securing the modern web.</p>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6">
+                    <span>94 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-rose-600 dark:text-rose-400">arrow_forward</span>
+                </div>
+            </a>
+
+             <!-- Category 5 -->
+            <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-amber-500 dark:hover:border-amber-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-amber-50 dark:bg-amber-900/10 rounded-full blur-2xl group-hover:bg-amber-100 dark:group-hover:bg-amber-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-8 text-amber-600 dark:text-amber-400">
+                        <span class="material-symbols-outlined text-3xl">devices</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors tracking-tight">Tech Hardware</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Silicon deep dives, data center infrastructure, and consumer device ecosystems.</p>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6">
+                    <span>112 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-amber-600 dark:text-amber-400">arrow_forward</span>
+                </div>
+            </a>
+
+             <!-- Category 6 -->
+             <a href="article.html" class="group bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/50 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col h-full">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-cyan-50 dark:bg-cyan-900/10 rounded-full blur-2xl group-hover:bg-cyan-100 dark:group-hover:bg-cyan-900/20 transition-colors"></div>
+                
+                <div class="relative z-10 flex-1">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-900/30 flex items-center justify-center mb-8 text-cyan-600 dark:text-cyan-400">
+                        <span class="material-symbols-outlined text-3xl">token</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors tracking-tight">Web3 & Crypto</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Decentralized protocols, smart contract development, and the financialization of the web.</p>
+                </div>
+                
+                <div class="mt-auto relative z-10 font-[Inter] text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center justify-between border-t border-slate-100 dark:border-slate-700/50 pt-6">
+                    <span>87 Articles</span>
+                    <span class="material-symbols-outlined opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-600 dark:text-cyan-400">arrow_forward</span>
+                </div>
+            </a>
+
+            <!-- Search specific topics block -->
+            <div class="bg-slate-100 dark:bg-slate-800/50 rounded-3xl p-8 flex flex-col justify-center items-center text-center h-full border border-dashed border-slate-300 dark:border-slate-700 md:col-span-2 xl:col-span-1">
+                <span class="material-symbols-outlined text-4xl text-slate-400 mb-4">search</span>
+                <h3 class="text-xl font-bold mb-2">Looking for specifics?</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Search across thousands of articles using our advanced indexing.</p>
+                <div class="w-full relative">
+                    <input type="text" placeholder="Search topics..." class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-blue-500 transition-shadow">
+                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+     <!-- Footer -->
+     <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-8 gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-black text-blue-700 dark:text-blue-400">TecBlog</span>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <span class="font-[Inter] text-xs text-slate-500 font-medium">Archive Directory</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><span class="material-symbols-outlined text-xl">rss_feed</span></a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><span class="material-symbols-outlined text-xl">terminal</span></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
